@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECORD DETAILS</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/allCountries">All Countries</a>
+            <a href="/allRecords">My Records</a>
+        </nav>
+    </header>
+    <main>
+        <div class="card">
+            <h4>Country: <%= data.country %>
+            </h4>
+            <p>Total Confirmed Cases: <%= data.totalconfirmed %>
+            </p>
+            <p>Total Deaths Cases: <%= data.totaldeaths %>
+            </p>
+            <p>Total Recovered Cases: <%= data.totalrecovered %>
+            </p>
+            <p>Date: <%= data.date %>
+            </p>
+
+            <form action="/deleteData/<%= data.id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

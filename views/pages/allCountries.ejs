@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Country Result</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/allCountries">All Countries</a>
+            <a href="/allRecords">My Records</a>
+        </nav>
+    </header>
+    <main>
+        <% data.forEach((item)=>{ %>
+
+            <div class="cardsCont">
+                <h4>Country: <%= item.country %>
+                </h4>
+                <p>Total Confirmed Cases: <%= item.totalconfirmed %>
+                </p>
+                <p>Total Deaths Cases: <%= item.totaldeaths %>
+                </p>
+                
+                <p>Total Recovered Cases: <%= item.totalrecovered %>
+                </p>
+                <p>Date: <%= item.date %>
+                </p>
+
+                <form action="/myRecords" method="POST">
+                    <input type="hidden" name="country" value="<%= item.country %>">
+                    <input type="hidden" name="totalconfirmed" value="<%= item.totalconfirmed %>">
+                    <input type="hidden" name="totaldeaths" value="<%= item.totaldeaths %>">
+                    <input type="hidden" name="totalrecovered" value="<%= item.totalrecovered %>">
+                    <input type="hidden" name="date" value="<%= item.date %>">
+
+                    <input type="submit" value="add-to-my-records">
+                </form>
+
+                
+
+            </div>
+            <br>
+            <br>
+            <% }) %>
+
+    </main>
+    <footer></footer>
+</body>
+
+</html>
